@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krs <kristuff86@icloud.com>                +#+  +:+       +#+        */
+/*   By: kgraczyk <kgraczyk@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 17:28:07 by krs               #+#    #+#             */
-/*   Updated: 2024/03/27 18:00:59 by krs              ###   ########.fr       */
+/*   Updated: 2024/08/02 18:08:00 by kgraczyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <limits.h>
-# include "libft/libft.h"
+# include "../libft/libft.h"
 
 int	ft_printf(const char *str, ...);
 

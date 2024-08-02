@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   serv.c                                             :+:      :+:    :+:   */
+/*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kgraczyk <kgraczyk@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 16:47:07 by kgraczyk          #+#    #+#             */
-/*   Updated: 2024/07/31 16:55:32 by kgraczyk         ###   ########.fr       */
+/*   Updated: 2024/08/02 18:01:58 by kgraczyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "ft_printf.h"
+#include "ft_printf/ft_printf.h"
 
 pid_t	g_client_pid = 0;
 

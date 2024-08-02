@@ -1,37 +1,54 @@
-NAME = libftprintf.a
+# Main Makefile
+
+# Variables
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-SRC = ft_printf.c
-OBJ = $(SRC:.c=.o)
-LIBFT_PATH = libft
-LIBFT = $(LIBFT_PATH)/libft.a
+LIBFT_DIR = libft
+FT_PRINTF_DIR = ft_printf
+LIBFT = $(LIBFT_DIR)/libft.a
+FT_PRINTF = $(FT_PRINTF_DIR)/libftprintf.a
+SERVER = server
+CLIENT = client
+SRCS = server.c client.c
 
-all: $(NAME)
+# Default target
+all: $(LIBFT) $(FT_PRINTF) $(SERVER) $(CLIENT)
 
-$(NAME): $(OBJ)
-	@make -C $(LIBFT_PATH)
-	@echo "Creating $(NAME)..."
-	@ar rc $(NAME) $(OBJ)
-	@ranlib $(NAME)
-	@echo "$(NAME) created successfully!"
-	@cp $(LIBFT) .
+# Compile libft.a
+$(LIBFT):
+	$(MAKE) -C $(LIBFT_DIR)
 
-$(OBJ): $(SRC)
-	@echo "Compiling $<..."
-	@$(CC) $(CFLAGS) -c $< -o $@
+# Compile libftprintf.a (depends on libft.a)
+$(FT_PRINTF): $(LIBFT)
+	$(MAKE) -C $(FT_PRINTF_DIR)
 
+# Compile server
+$(SERVER): server.o $(LIBFT) $(FT_PRINTF)
+	$(CC) $(CFLAGS) server.o -o $(SERVER) -L$(FT_PRINTF_DIR) -lftprintf -L$(LIBFT_DIR) -lft 
+
+# Compile client
+$(CLIENT): client.o $(LIBFT) $(FT_PRINTF)
+	$(CC) $(CFLAGS) client.o -o $(CLIENT) -L$(FT_PRINTF_DIR) -lftprintf -L$(LIBFT_DIR) -lft 
+
+# Compile object files
+server.o: server.c
+	$(CC) $(CFLAGS) -c server.c
+
+client.o: client.c
+	$(CC) $(CFLAGS) -c client.c
+
+# Clean up object files and executables
 clean:
-	@make clean -C $(LIBFT_PATH)
-	@echo "Cleaning object files..."
-	@rm -f $(OBJ)
-	@echo "Object files cleaned!"
+	rm -f *.o
+	$(MAKE) -C $(LIBFT_DIR) clean
+	$(MAKE) -C $(FT_PRINTF_DIR) clean
 
 fclean: clean
-	@make fclean -C $(LIBFT_PATH)
-	@echo "Cleaning $(NAME)..."
-	@rm -f $(NAME) ./libft.a
-	@echo "$(NAME) cleaned!"
+	rm -f $(LIBFT) $(FT_PRINTF) $(SERVER) $(CLIENT)
+	$(MAKE) -C $(LIBFT_DIR) fclean
+	$(MAKE) -C $(FT_PRINTF_DIR) fclean
 
+# Rebuild everything
 re: fclean all
 
 .PHONY: all clean fclean re

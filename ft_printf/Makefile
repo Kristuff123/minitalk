@@ -1,14 +1,15 @@
-# libft/Makefile
+# ft_printf/Makefile
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -I../libft
 SRCS = $(wildcard *.c)
 OBJS = $(SRCS:.c=.o)
-NAME = libft.a
+NAME = libftprintf.a
+LIBFT = ../libft/libft.a
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) $(LIBFT)
 	ar rcs $(NAME) $(OBJS)
 
 clean:

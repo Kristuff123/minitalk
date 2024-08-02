@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cli.c                                              :+:      :+:    :+:   */
+/*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kgraczyk <kgraczyk@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 16:42:48 by kgraczyk          #+#    #+#             */
-/*   Updated: 2024/07/31 16:45:57 by kgraczyk         ###   ########.fr       */
+/*   Updated: 2024/08/02 18:01:37 by kgraczyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "libft/libft.h"
-#include "ft_printf.h"
+#include "ft_printf/ft_printf.h"
 
 volatile sig_atomic_t	g_ack_received = 0;
 

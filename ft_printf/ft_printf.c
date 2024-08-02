@@ -6,11 +6,11 @@
 /*   By: kgraczyk <kgraczyk@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 22:02:48 by kgraczyk          #+#    #+#             */
-/*   Updated: 2024/04/14 18:57:35 by kgraczyk         ###   ########.fr       */
+/*   Updated: 2024/08/02 18:07:29 by kgraczyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "../libft/libft.h"
 #include "ft_printf.h"
 
 static int	ft_formatter(va_list args, const char format)
